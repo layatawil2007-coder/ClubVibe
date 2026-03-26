@@ -54,4 +54,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 [Figma Design](https://www.figma.com/design/c525A8uSdQLJxHmC4wOcqK/ClubVibe-Design?node-id=0-1&p=f&t=Nm8wifGTQwicLFRL-0)
 
 ## Live Demo
-[Vercel URL will go here]
+https://club-vibe-cpb3.vercel.app
+
