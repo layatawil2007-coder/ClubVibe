@@ -1,77 +1,57 @@
-"use client";
+import { use } from "react";
 
-import { use, useEffect, useState } from "react";
+const clubs = [
+    {
+        id: "1",
+        name: "Sky Club",
+        location: "Paris",
+        address: "12 Rue de Rivoli, 75001 Paris",
+        genre: "House",
+        image:
+            "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        songName: "Midnight Groove",
+        artist: "DJ Nova",
+        song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        rating: "4.5 ⭐",
+        review: "Amazing vibe, great DJs, always packed on weekends.",
+    },
+    {
+        id: "2",
+        name: "Neon Nights",
+        location: "Berlin",
+        address: "Alexanderplatz 5, Berlin",
+        genre: "Techno",
+        image:
+            "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        songName: "Dark Pulse",
+        artist: "TechnoX",
+        song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+        rating: "4.7 ⭐",
+        review: "Underground techno heaven with insane lighting.",
+    },
+    {
+        id: "3",
+        name: "Velvet Room",
+        location: "London",
+        address: "Oxford Street, London",
+        genre: "Hip-Hop",
+        image:
+            "https://images.pexels.com/photos/2111015/pexels-photo-2111015.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        songName: "Street Flow",
+        artist: "MC Blaze",
+        song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        rating: "4.3 ⭐",
+        review: "Chill vibe, good crowd, and strong hip-hop lineup.",
+    },
+];
 
-export default function ClubPage({ params }: any) {
+export default function ClubPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
     const resolvedParams = use(params);
-    const [liked, setLiked] = useState(false);
-
-    const clubs = [
-        {
-            id: "1",
-            name: "Sky Club",
-            location: "Paris",
-            address: "12 Rue de Rivoli, 75001 Paris",
-            genre: "House",
-            image:
-                "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=1200",
-            songName: "Midnight Groove",
-            artist: "DJ Nova",
-            song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            rating: "4.5 ⭐",
-            review: "Amazing vibe, great DJs, always packed on weekends.",
-        },
-        {
-            id: "2",
-            name: "Neon Nights",
-            location: "Berlin",
-            address: "Alexanderplatz 5, Berlin",
-            genre: "Techno",
-            image:
-                "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1200",
-            songName: "Dark Pulse",
-            artist: "TechnoX",
-            song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            rating: "4.7 ⭐",
-            review: "Underground techno heaven with insane lighting.",
-        },
-        {
-            id: "3",
-            name: "Velvet Room",
-            location: "London",
-            address: "Oxford Street, London",
-            genre: "Hip-Hop",
-            image:
-                "https://images.pexels.com/photos/2111015/pexels-photo-2111015.jpeg?auto=compress&cs=tinysrgb&w=1200",
-            songName: "Street Flow",
-            artist: "MC Blaze",
-            song: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-            rating: "4.3 ⭐",
-            review: "Chill vibe, good crowd, and strong hip-hop lineup.",
-        },
-    ];
-
     const club = clubs.find((c) => c.id === resolvedParams.id);
-
-    useEffect(() => {
-        if (!club) return;
-        const saved = localStorage.getItem("clubvibe-favorites");
-        const favorites = saved ? JSON.parse(saved) : [];
-        setLiked(favorites.includes(club.id));
-    }, [club]);
-
-    function toggleFavorite() {
-        if (!club) return;
-        const saved = localStorage.getItem("clubvibe-favorites");
-        const favorites = saved ? JSON.parse(saved) : [];
-
-        const updated = favorites.includes(club.id)
-            ? favorites.filter((id: string) => id !== club.id)
-            : [...favorites, club.id];
-
-        localStorage.setItem("clubvibe-favorites", JSON.stringify(updated));
-        setLiked(updated.includes(club.id));
-    }
 
     if (!club) {
         return <div className="p-6 text-white">Club not found</div>;
@@ -94,16 +74,10 @@ export default function ClubPage({ params }: any) {
                     className="mt-4 h-64 w-full rounded-2xl object-cover"
                 />
 
-                <div className="mt-5 flex items-start justify-between gap-4">
-                    <div>
-                        <h1 className="text-3xl font-bold">{club.name}</h1>
-                        <p className="mt-1 text-gray-400">{club.location}</p>
-                        <p className="text-sm text-gray-500">{club.address}</p>
-                    </div>
-
-                    <button onClick={toggleFavorite} className="text-3xl">
-                        {liked ? "❤️" : "🤍"}
-                    </button>
+                <div className="mt-5">
+                    <h1 className="text-3xl font-bold">{club.name}</h1>
+                    <p className="mt-1 text-gray-400">{club.location}</p>
+                    <p className="text-sm text-gray-500">{club.address}</p>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
