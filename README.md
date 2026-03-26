@@ -35,7 +35,7 @@ Young adults, students, tourists, and nightlife lovers in Paris who want to choo
 - Deployed on Vercel
 
 ## Design
-[Figma link will go here]
+https://www.figma.com/design/c525A8uSdQLJxHmC4wOcqK/ClubVibe-Design?node-id=0-1&p=f&t=Nm8wifGTQwicLFRL-0
 
 ## Live Demo
 [Vercel URL will go here]
