@@ -1,4 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ClubVibe
+
+A web app that helps people discover clubs in Paris, preview their music vibe, and find songs playing in real time.
+
+## Target User
+Young adults, students, tourists, and nightlife lovers in Paris who want to choose clubs based on music, atmosphere, and location.
+
+## Features
+
+### Must Have
+- Browse a list of clubs in Paris
+- View a club detail page with location, genre, and vibe
+- Listen to short music previews for each club
+- Clean navigation between pages
+
+### Should Have
+- Search clubs by name or area
+- Filter clubs by music genre
+- Save favorite clubs
+
+### Could Have
+- Song recognition feature inspired by Shazam
+- Show upcoming events for each club
+- Interactive map view
+
+## Data Model
+- **Club**: `id`, `name`, `location`, `arrondissement`, `genre`, `vibeDescription`, `image`, `previewSongs`
+- **SongPreview**: `id`, `title`, `artist`, `audioUrl`
+- **User**: `id`, `name`, `savedClubs`
+
+## Tech Stack
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Deployed on Vercel
 
 ## Getting Started
 
@@ -16,21 +50,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Design
+[Figma Design](https://www.figma.com/design/c525A8uSdQLJxHmC4wOcqK/ClubVibe-Design?node-id=0-1&p=f&t=Nm8wifGTQwicLFRL-0)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Live Demo
+[Vercel URL will go here]
